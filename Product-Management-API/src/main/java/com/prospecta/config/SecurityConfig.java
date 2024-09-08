@@ -1,0 +1,67 @@
+package com.prospecta.config;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+@Configuration
+@EnableWebSecurity(debug = false)
+@EnableMethodSecurity(prePostEnabled = true)
+public class SecurityConfig {
+
+	@Autowired
+	private AuthenticationProvider authenticationProvider;
+	@Autowired
+	private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+	@Bean
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+		http.csrf(csrf -> csrf.disable()).cors(Customizer.withDefaults())
+				.authorizeHttpRequests(
+						auth -> auth.requestMatchers("/api/prospecta/auth/**", "/api/prospecta/register-user/**")
+								.permitAll().requestMatchers("/swagger-ui*/**", "/v3/api-docs/**").permitAll()
+								.requestMatchers("/api/prospecta/products/**", "/api/prospecta//upload-csv/**")
+								.hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.authenticationProvider(authenticationProvider)
+				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+		return http.build();
+
+	}
+
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource(@Value("${allowedOrigins}") String allowedOriginsString) {
+		List<String> allowedOriginsList = Arrays.asList(allowedOriginsString.split(","));
+
+		CorsConfiguration configuration = new CorsConfiguration();
+		configuration.setAllowedOrigins(allowedOriginsList);
+		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "PUT", "DELETE"));
+		configuration.setAllowCredentials(true);
+		configuration.setAllowedHeaders(Arrays.asList("Authorization", "Requestor-Type", "Content-type", "*"));
+		configuration.setExposedHeaders(Arrays.asList("*", "X-Get-Header"));
+		configuration.setMaxAge(3600L);
+
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", configuration);
+
+		return source;
+	}
+
+}
