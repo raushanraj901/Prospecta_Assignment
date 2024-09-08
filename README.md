@@ -32,8 +32,6 @@ The technical stack for this project includes Java with Spring Boot for API deve
 
 ## Screenshots
 
-### All Api Image
-
 ![logo](https://github.com/raushanraj901/Prospecta_Assignment/blob/main/Screenshot%20(2).png)
 
 ## How to Test
