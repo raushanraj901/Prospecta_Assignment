@@ -13,7 +13,7 @@ The technical stack for this project includes Java with Spring Boot for API deve
 - Java 17
 - Maven
 - MySQL
-- Postman (for API testing)
+- Postman
 - Swagger
 - STS
 
