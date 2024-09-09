@@ -1,4 +1,42 @@
-Question 1: How will you tackle the challenge above?
+Question 1: What are the key things you would consider when creating/consuming an API to ensure that it is secure and reliable?
+
+Ans. Creating and consuming secure and reliable APIs is crucial to protect data, ensure consistent performance, and maintain user trust. Here are the key considerations to keep in mind:
+
+1. Input Validation and Sanitization
+Validate all incoming data to ensure it meets the expected format, type, and constraints.
+Sanitize inputs to prevent injection attacks, such as SQL injection, cross-site scripting (XSS), and command injections.
+
+2. Error Handling and Logging
+Provide meaningful and consistent error messages without exposing sensitive information.
+Implement robust logging for monitoring and debugging purposes. Ensure logs are secure and do not contain sensitive data.
+
+3. Data Encryption
+Encrypt sensitive data both in transit (using HTTPS) and at rest (using database encryption techniques).
+Ensure API tokens and other credentials are stored securely, such as in environment variables or secure vaults.
+
+4. Use API Gateways
+API gateways provide a centralized entry point for API requests, offering features like rate limiting, logging, caching, load balancing, and security policies.
+
+5. Detailed API Documentation
+Provide clear and detailed API documentation, including security considerations, to help consumers use the API correctly and securely.
+
+6. Input and Output Data Constraints
+Enforce constraints on input data size and type to prevent payload-based attacks.
+Ensure output data does not leak sensitive information and is formatted correctly.
+7. Dependency Management Keep dependencies up to date and regularly scan for known vulnerabilities in libraries and frameworks used by the API.
+8. Handling Sensitive Information
+Avoid exposing sensitive information in error messages or responses. Strip unnecessary data and ensure that error responses are generic.
+9. Timeouts and Retry Logic
+Implement timeouts for API requests to prevent hanging requests and ensure the API remains responsive.
+Use retry logic for transient failures, but ensure that retries do not cause unintended side effects.
+10. Scalability and Performance Optimization
+Design your API to handle high loads by optimizing queries, using caching, and employing horizontal scaling techniques.
+11. Secure API Endpoints
+Secure endpoints with appropriate access controls and ensure that sensitive endpoints are not exposed unnecessarily.
+By considering these key aspects, you can ensure your API is both secure and reliable, providing a robust foundation for developers and end-users alike.
+
+
+Question 2: How will you tackle the challenge above?
 
 To tackle the challenge of processing a CSV file with formulas and generating a processed output, follow these steps:
 
@@ -10,7 +48,7 @@ To tackle the challenge of processing a CSV file with formulas and generating a 
 
 4. Handle Errors: Ensure proper error handling throughout the process. This includes catching `IOException` during file operations and handling exceptions related to formula processing.
 
-Question 2: What type of errors would you check for?
+Question 3: What type of errors would you check for?
 
 When processing CSV files, check for the following types of errors:
 
@@ -32,7 +70,7 @@ When processing CSV files, check for the following types of errors:
 6. File Handling Errors:
    - Empty or Corrupted Files: Check for empty or corrupted files and ensure they can be read and processed correctly.
 
-Question 3: How might a user break your code?
+Question 4: How might a user break your code?
 
 Here are some ways a user might break your code:
 
