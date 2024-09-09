@@ -23,14 +23,19 @@ Provide clear and detailed API documentation, including security considerations,
 6. Input and Output Data Constraints
 Enforce constraints on input data size and type to prevent payload-based attacks.
 Ensure output data does not leak sensitive information and is formatted correctly.
+
 7. Dependency Management Keep dependencies up to date and regularly scan for known vulnerabilities in libraries and frameworks used by the API.
+
 8. Handling Sensitive Information
 Avoid exposing sensitive information in error messages or responses. Strip unnecessary data and ensure that error responses are generic.
+
 9. Timeouts and Retry Logic
 Implement timeouts for API requests to prevent hanging requests and ensure the API remains responsive.
 Use retry logic for transient failures, but ensure that retries do not cause unintended side effects.
+
 10. Scalability and Performance Optimization
 Design your API to handle high loads by optimizing queries, using caching, and employing horizontal scaling techniques.
+
 11. Secure API Endpoints
 Secure endpoints with appropriate access controls and ensure that sensitive endpoints are not exposed unnecessarily.
 By considering these key aspects, you can ensure your API is both secure and reliable, providing a robust foundation for developers and end-users alike.
