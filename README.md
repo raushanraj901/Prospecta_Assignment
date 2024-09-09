@@ -163,3 +163,96 @@ To ensure the security and reliability of the APIs:
     
       }
     ```
+
+
+# CSV Processing Service
+
+This project is a Spring Boot application that provides an API to upload and process CSV files. The API reads CSV content, evaluates any formulas within the cells, and returns the processed data as a new CSV file.
+
+## Features
+
+- Upload and process CSV files.
+- Evaluate basic mathematical formulas within CSV cells.
+- Return processed data as CSV file.
+
+## Technologies Used
+
+- Java 17+
+- Spring Boot
+- Maven
+- RESTful API
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- Java 17+
+- Maven
+- Git
+
+### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/raushanraj901/Prospecta_Assignment.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd your-repository
+    ```
+
+3. Build the project using Maven:
+
+    ```bash
+    mvn clean install
+    ```
+
+4. Run the application:
+
+    ```bash
+    mvn spring-boot:run
+    ```
+
+The application will start and be accessible at `http://localhost:8080`.
+
+## API Documentation
+
+### CSV Upload API
+
+The CSV Upload API allows users to upload CSV files, process them, and return the evaluated data.
+
+#### Endpoint
+
+- **URL:** `/api/csv/upload`
+- **Method:** `POST`
+- **Consumes:** `multipart/form-data`
+- **Produces:** `text/csv`
+
+#### Request Parameters
+
+- **file**: The CSV file to be uploaded. This must be a `.csv` file.
+
+#### Responses
+
+- **200 OK**: Processed CSV content as plain text.
+- **400 Bad Request**: Error message for empty files or processing errors.
+- **415 Unsupported Media Type**: Error message for unsupported file types.
+
+#### Example Request Using Postman
+
+1. **Open Postman** and create a new request.
+2. **Set the request method** to `POST`.
+3. **Enter the request URL**: `http://localhost:8080/api/csv/upload`.
+4. **Set Headers**: Ensure `Content-Type` is set to `multipart/form-data`.
+5. **Add File**:
+   - Go to the `Body` tab.
+   - Select `form-data`.
+   - Enter `file` as the key.
+   - Choose `File` from the dropdown next to the key.
+   - Click `Select Files` and upload a CSV file.
+6. **Click Send** to upload the file.
