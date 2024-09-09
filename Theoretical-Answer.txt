@@ -1,0 +1,52 @@
+Question 1: How will you tackle the challenge above?
+
+To tackle the challenge of processing a CSV file with formulas and generating a processed output, follow these steps:
+
+1. Parse the CSV File: Use Apache Commons CSV to read the input CSV file. Convert the CSV content into a format that can be easily manipulated by iterating through the records and processing each cell.
+
+2. Process Formulas (if applicable): Implement logic to evaluate formulas within the cells. This involves parsing the formula, resolving cell references, and calculating the result. For now, the `processCell` method is a placeholder, so you'll need to add formula evaluation functionality here.
+
+3. Generate Output CSV: After processing the data (including formula evaluation), convert the processed data back into CSV format. Use `ByteArrayOutputStream` and `PrintWriter` to write the data into a new CSV file.
+
+4. Handle Errors: Ensure proper error handling throughout the process. This includes catching `IOException` during file operations and handling exceptions related to formula processing.
+
+Question 2: What type of errors would you check for?
+
+When processing CSV files, check for the following types of errors:
+
+1. Malformed CSV File:
+   - Improper Formatting: Handle cases where the CSV file is incorrectly formatted, such as missing commas or inconsistent row lengths.
+
+2. Complex Formulas:
+   - Unsupported Operations: Manage formulas with unsupported functions or syntax, which could lead to errors or incorrect results.
+
+3. Missing References:
+   - Undefined Cells: Check if formula references point to existing and valid cells to avoid calculation errors.
+
+4. Data Type Mismatches:
+   - Non-numeric Values: Ensure numeric operations handle non-numeric values gracefully to prevent errors.
+
+5. Parsing Errors:
+   - Incorrect CSV Formatting: Address issues related to unexpected delimiters or line breaks in the CSV file.
+
+6. File Handling Errors:
+   - Empty or Corrupted Files: Check for empty or corrupted files and ensure they can be read and processed correctly.
+
+Question 3: How might a user break your code?
+
+Here are some ways a user might break your code:
+
+1. Malformed CSV File:
+   - Improper Formatting: Uploading a CSV file with missing commas, inconsistent row lengths, or other formatting issues may cause parsing errors.
+
+2. Complex Formulas:
+   - Unsupported Operations: Using formulas with complex functions or syntax not supported by the current implementation could lead to calculation errors or crashes.
+
+3. Missing References:
+   - Undefined Cells: Formulas that reference non-existent or empty cells can result in calculation errors or exceptions.
+
+4. Large Files:
+   - Performance Issues: Very large CSV files may cause performance degradation or memory issues if not handled efficiently.
+
+5. Non-Numeric Values in Numeric Operations:
+   - Invalid Data: Including non-numeric values in cells where numeric operations are expected can lead to errors or unexpected results.
