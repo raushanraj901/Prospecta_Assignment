@@ -1,9 +1,9 @@
 # API for Product Management And CSV File Management
-### The Coding Interview for Graduates project at Prospecta entails the development of secure APIs using JWT authentication and role-based access control, in conjunction with the Fake Store API. The project encompasses the creation of two primary APIs: one for retrieving product details based on category and another for adding new product entries.
+The Coding Interview for Graduates project at Prospecta entails the development of secure APIs using JWT authentication and role-based access control, in conjunction with the Fake Store API. The project encompasses the creation of two primary APIs: one for retrieving product details based on category and another for adding new product entries.
 
-### Additionally, the project includes a theoretical component involving the development of a program that processes a CSV file containing both values and formulas. This program is expected to compute the results of the formulas and produce a corresponding CSV output.
+Additionally, the project includes a theoretical component involving the development of a program that processes a CSV file containing both values and formulas. This program is expected to compute the results of the formulas and produce a corresponding CSV output.
 
-### The technical stack for this project includes Java with Spring Boot for API development, JWT for authentication, and role-based access control for endpoint security. The implementation emphasizes comprehensive error handling and validation mechanisms to effectively manage formulas, cell references, and non-integer values.
+The technical stack for this project includes Java with Spring Boot for API development, JWT for authentication, and role-based access control for endpoint security. The implementation emphasizes comprehensive error handling and validation mechanisms to effectively manage formulas, cell references, and non-integer values.
 
 
 ## Getting Started
