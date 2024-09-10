@@ -10,10 +10,11 @@ import lombok.Data;
 
 @Data
 public class UserDto {
+	
 	@NotBlank(message = "Name is mandatory")
 	private String name;
 
-	@Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Phone number must be a valid international format")
+	@Pattern(regexp = "^\\(?\\d{3}\\)?[\\s-]?\\d{3}[\\s-]?\\d{4}$", message = "Phone number must be a valid mobile or landline format")
 	private String phone;
 
 	@NotBlank(message = "Email is mandatory")

@@ -31,7 +31,7 @@ public class RemoteApiServiceImpl implements RemoteApiService {
 	private RestTemplate restTemplate;
 
 	@Override
-	public Product storeProduct(Product product) throws RemoteApiException {
+	public Product addProduct(Product product) throws RemoteApiException {
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Content-Type", "application/json");
