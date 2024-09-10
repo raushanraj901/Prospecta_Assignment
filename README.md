@@ -53,7 +53,7 @@ The technical stack for this project includes Java with Spring Boot for API deve
 
 4. **Add Product:**
 
-    Send a `POST` request to `http://localhost:8888/api/products/` with the product details in the request body and jwt token in headers.
+    Send a `POST` request to `http://localhost:8888/api/products/add` with the product details in the request body and jwt token in headers.
 
    
 ## Security and Reliability
@@ -136,7 +136,7 @@ To ensure the security and reliability of the APIs:
 
 #### 2. Add New Product
 
-- **Endpoint:** `POST http://localhost:8888/api/products/`
+- **Endpoint:** `POST http://localhost:8888/api/products/add`
 - **Description:** Adds a new product to the store.
 - **Request Body:**
 
